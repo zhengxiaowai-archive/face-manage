@@ -1,0 +1,33 @@
+.form-signin {
+    width: 300px;
+    margin: auto;
+}
+.form-signin > h4 {
+    text-align: center;
+}
+
+.form-signin > .form-control {
+    margin-bottom: 10px;
+}
+
+#myModal > .modal-dialog >.modal-content {
+    
+    margin: auto;
+    text-align: center;
+}
+
+#myModal > .modal-dialog >.modal-content .modal-body > form {
+    width: 400px;
+    margin: auto;
+}
+
+#myModal > .modal-dialog >.modal-content .modal-body > form > .form-group > label {
+    margin-right: 15px;
+}
+
+#myModal > .modal-dialog >.modal-content .modal-body > form > .form-group >  input {
+    width: 250px;
+}
+#myModal > .modal-dialog >.modal-content .modal-body > form > .form-group + .form-group {
+    margin-top: 10px;
+}
