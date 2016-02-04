@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登入</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/flat-ui.min.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/fileinput.css">
+</head>
+<body>
+    <div class='container'>
+        {% if error %}
+        <div class="alert alert-danger" role="alert">你的{{error}}错误</div>
+        {% endif %}
+        <form class='form-signin' action='/user/login' method='post'>
+            {% csrf_token %}
+            <h4 class="form-signin-heading">登入人脸识别管理</h4>
+            <input type="text" placeholder="学号" class="form-control" name='username'/>
+            <input type="password" placeholder="密码" class="form-control" name='password'/>
+            <button class="btn btn-sm btn-primary btn-block" type="submit">登入</button>
+            <button class="btn btn-sm btn-primary btn-block" type="button" data-toggle="modal" data-target="#myModal">注册</button>
+        </form>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">注册信息</h4>
+              </div>
+              <div class="modal-body">
+                <form action="/user/register" method='post' class="form-inline" role="form">
+                    <div class='form-group'>
+                        <label class='form-label' for='re-num'>学号</label>
+                        <input type="text" value="" placeholder="学号" class="form-control" name='number' id='re-num'/>
+                    </div>
+                    <div class='form-group'>
+                        <label class='form-label' for='re-name'>姓名</label>
+                        <input type="text" value="" placeholder="名字" class="form-control" name='username' id='re-name'/>
+                    </div>
+                    <div class='form-group'>
+                        <label class='form-label' for='re-xclass'>班级</label>
+                        <input type="text" value="" placeholder="班级" class="form-control" name='xclass' id='re-xclass'/>
+                    </div>
+                    <div class='form-group'>
+                        <label class="form-label">照片</label>
+                        <input id="input-2" name="input2[]" type="file" class="file form-control" multiple data-show-upload="false" data-show-caption="true" data-allowed-file-extensions='["png"]'>
+                    </div>
+                    
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">注册</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/fileinput.min.js"></script>
+    <script type="text/javascript" src="/static/js/fileinput_locale_zh.js"></script>
+</body>
+</html>

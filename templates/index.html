@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/flat-ui.min.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+          <div class="navbar-header">
+            <button data-target="#navbar-collapse-08" data-toggle="collapse" class="navbar-toggle" type="button">
+            </button>
+            <a href="#" class="navbar-brand">FaceRecognition</a>
+          </div>
+         <div class="btn-group navbar-right down-drop">
+            {% if username %}
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            {{ username }} <span class="caret"></span>
+            </button>
+            {% else %}
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            未登入 <span class="caret"></span>
+            {% endif %}
+            
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="/user/logout">注销</a></li>
+            </ul>
+            </div>
+    </nav>
+    <div class='container'>
+
+    <div>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/flat-ui.min.js"></script>
+</body>
+</html>
