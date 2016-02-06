@@ -2,9 +2,14 @@
 from __future__ import unicode_literals,print_function
 
 from django.shortcuts import render,redirect
+from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 from django.contrib import auth
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
+
+from backend.models import *
 
 # Create your views here.
 
@@ -28,13 +33,44 @@ def logout(request):
     return redirect('/user/login')
 
 @require_http_methods(['POST'])
+@transaction.atomic
 def register(request):
-    return redirect('index.html', {'username': request.user.username})
+    account = request.POST['account']
+    username = request.POST['username']
+    password = request.POST['password']
+    number = request.POST['number']
+    xclass = request.POST['xclass']
+    image = request.FILES['image']
+
+    print(number)
+    # 简单的表单校验
+    if not (account and username and password and number and xclass and image):
+        return HttpResponse('确认填写的信息完整！', status=400)
+
+    # 创建用户
+    if account in User.objects.filter(username=account):
+        return HttpResponse('用户存在', status=400)
+
+    new_user = User()
+    new_user.username=account
+    new_user.set_password(password)
+    new_user.is_active=True
+    new_user.save()
+
+    new_extuser = ExtUser(user=new_user, student_number=number, xclass=xclass, name=username)
+    new_extuser.save()
+
+    # 保存图片
+    with open('./static/img/origin/%s.png' % str(number), 'wb') as f:
+        f.write(image.read())
+    # return HttpResponse('OK')
+    return redirect('/user/login')
 
 @login_required
 @require_http_methods(['GET'])
 def index(request):
-    return render(request, 'index.html', {'username': request.user.username})
+    real_name = request.user.user_ext.name
+    return render(request, 'index.html', {'username': real_name})
 
 
 

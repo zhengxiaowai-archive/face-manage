@@ -28,6 +28,15 @@
 #myModal > .modal-dialog >.modal-content .modal-body > form > .form-group >  input {
     width: 250px;
 }
+
 #myModal > .modal-dialog >.modal-content .modal-body > form > .form-group + .form-group {
     margin-top: 10px;
+}
+
+#myModal > .modal-dialog >.modal-content .modal-body > form > .form-group:last-child {
+    display: block;
+}
+
+#myModal > .modal-dialog >.modal-content .modal-body > form > .form-group:last-child > button {
+    margin: 10px
 }

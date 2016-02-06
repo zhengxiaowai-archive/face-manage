@@ -10,3 +10,7 @@ class ExtUser(models.Model):
     user = models.OneToOneField(User, related_name='user_ext')
     student_number = models.CharField('学号', max_length=10, null=False, blank=False, primary_key=True)
     xclass = models.CharField('班级', max_length=100, default='')
+    name = models.CharField('姓名', max_length=100, default='')
+
+    def __unicode__(self):
+        return self.name
