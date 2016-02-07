@@ -15,9 +15,9 @@
             <a href="#" class="navbar-brand">FaceRecognition</a>
           </div>
          <div class="btn-group navbar-right down-drop">
-            {% if username %}
+            {% if account %}
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            {{ username }} <span class="caret"></span>
+            {{ account }} <span class="caret"></span>
             </button>
             {% else %}
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -25,16 +25,50 @@
             {% endif %}
             
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
+                <li><a href="#">个人信息</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
                 <li><a href="/user/logout">注销</a></li>
             </ul>
-            </div>
+         </div>
     </nav>
-    <div class='container'>
+    <div class='container' id="main">
+        <div class="info">
+            <div class="photo">
+                <img src="/static/img/origin/2012132004.png">
+            </div>
+            <div>
+                <label for="user-name">姓名:&nbsp;</label>
+                <span id="user-name">{{ username }}</span>
+            </div>
+            <div>
+                <label for="user-number">学号:&nbsp;</label>
+                <span id="user-number">{{ number }}</span>
+            </div>
+            <div>
+                <label for="user-class">班级:&nbsp;</label>
+                <span id="user-class">{{ xclass }}</span>
+            </div>
+        </div>
+        <div class="activity">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active"><a href="#dynamic" data-toggle="tab">动态</a></li>
+                <li><a href="#statistics" data-toggle="tab">统计</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="dynamic">
+                    <p>W3Cschoool菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+                </div>
+                <div class="tab-pane fade" id="statistics">
+                    <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                  TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+                </div>
+            </div>
+        </div>
+        <div class="other">
 
+        </div>
     <div>
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/flat-ui.min.js"></script>

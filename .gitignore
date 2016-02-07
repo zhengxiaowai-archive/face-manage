@@ -65,3 +65,4 @@ logs/
 db.sqlite3
 .DS_Store
 static/img/origin/
+.idea/

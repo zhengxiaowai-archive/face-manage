@@ -13,6 +13,7 @@ from backend.models import *
 
 # Create your views here.
 
+
 def login(request):
     if request.method == 'GET':
         return render(request, 'login.html')
@@ -27,10 +28,12 @@ def login(request):
         else:
             return render(request, 'login.html', {'error': '账号或密码'})
 
+
 @require_http_methods(['GET'])
 def logout(request):
     auth.logout(request)
     return redirect('/user/login')
+
 
 @require_http_methods(['POST'])
 @transaction.atomic
@@ -52,9 +55,9 @@ def register(request):
         return HttpResponse('用户存在', status=400)
 
     new_user = User()
-    new_user.username=account
+    new_user.username = account
     new_user.set_password(password)
-    new_user.is_active=True
+    new_user.is_active = True
     new_user.save()
 
     new_extuser = ExtUser(user=new_user, student_number=number, xclass=xclass, name=username)
@@ -66,11 +69,16 @@ def register(request):
     # return HttpResponse('OK')
     return redirect('/user/login')
 
+
 @login_required
 @require_http_methods(['GET'])
 def index(request):
+    account = request.user.username
     real_name = request.user.user_ext.name
-    return render(request, 'index.html', {'username': real_name})
+    student_number = request.user.user_ext.student_number
+    xclass = request.user.user_ext.xclass
+
+    return render(request, 'index.html', {'account': account, 'username': real_name, 'xclass': xclass, 'number': student_number})
 
 
 
