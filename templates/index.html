@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/flat-ui.min.css">
     <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/nprogress.css">
 </head>
 <body>
+    <span class='nprogress-logo fade out'></span>
     <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
           <div class="navbar-header">
-            <button data-target="#navbar-collapse-08" data-toggle="collapse" class="navbar-toggle" type="button">
-            </button>
-            <a href="#" class="navbar-brand">FaceRecognition</a>
+            <button data-target="#navbar-collapse-08" data-toggle="collapse" class="navbar-toggle" type="button"></button>
+            <a href="#" class="navbar-brand">Face&nbsp;Recognition</a>
           </div>
          <div class="btn-group navbar-right down-drop">
             {% if account %}
@@ -34,43 +35,64 @@
          </div>
     </nav>
     <div class='container' id="main">
-        <div class="info">
-            <div class="photo">
-                <img src="/static/img/origin/2012132004.png">
-            </div>
-            <div>
-                <label for="user-name">姓名:&nbsp;</label>
-                <span id="user-name">{{ username }}</span>
-            </div>
-            <div>
-                <label for="user-number">学号:&nbsp;</label>
-                <span id="user-number">{{ number }}</span>
-            </div>
-            <div>
-                <label for="user-class">班级:&nbsp;</label>
-                <span id="user-class">{{ xclass }}</span>
-            </div>
-        </div>
+        <!--<div class="info">-->
+            <!--<div class="photo">-->
+                <!--<img src="/static/img/origin/2012132004.png">-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<label for="user-name">姓名:&nbsp;</label>-->
+                <!--<span id="user-name">{{ username }}</span>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<label for="user-number">学号:&nbsp;</label>-->
+                <!--<span id="user-number">{{ number }}</span>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<label for="user-class">班级:&nbsp;</label>-->
+                <!--<span id="user-class">{{ xclass }}</span>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="activity">
-            <ul id="myTab" class="nav nav-tabs">
-                <li class="active"><a href="#dynamic" data-toggle="tab">动态</a></li>
-                <li><a href="#statistics" data-toggle="tab">统计</a></li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade in active" id="dynamic">
-                    <p>W3Cschoool菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+            <div class="panel panel-default dynamic">
+                <div class="panel-heading">
+                    <h3 class="panel-title">动态</h3>
                 </div>
-                <div class="tab-pane fade" id="statistics">
-                    <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
-                  TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+                <div class="panel-body">
+                    <div class="state">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    </div>
+                    <div class="state">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </div>
+                    <div class="state">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                <h3 class="panel-title">统计</h3>
+                </div>
+                <div class="panel-body">
+                    Panel content
                 </div>
             </div>
         </div>
-        <div class="other">
 
+    </div>
+    <div class="footer">
+        <div>
+            <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+            &nbsp;&nbsp;2016&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+            &nbsp;&nbsp;
+            Power&nbsp;By&nbsp;z正小歪&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>京ICP备16005814号</span>
         </div>
-    <div>
+    </div>
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/nprogress.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script>
 </body>
 </html>

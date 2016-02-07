@@ -3,35 +3,55 @@
     margin-right: 5px;
 }
 
-.info, .activity, .other{
-    display: table-cell;
+.navbar > .navbar-header > a {
+    color: #16a085;
 }
 
 #main {
     margin-top: 100px;
 }
 
-.info {
-    width: 20%;
+.activity > .panel > .panel-heading {
+    color: #34495e;
+    background-color: #ecf0f1;
 }
 
-.info > .photo {
-    margin-bottom: 25px;
-}
-.info > .photo > img{
-    display: block;
-    margin: auto;
-    border-radius:40px
-}
-
-.info > div + div {
-    margin-left: 50px;
-}
-.activity {
-    width: 60%;
-    padding: 20px 20px;
+.activity > .dynamic > .panel-body > .state {
+    border: 2px solid #ECF0F1;
+    height: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
 }
 
-.other {
-    width: 20%;
+.activity > .dynamic > .panel-body > .state + .state {
+    margin-top: 15px;
+}
+
+.activity > .dynamic > .panel-body > .state:hover {
+    border-color: #BDC3C7;
+}
+
+.activity > .dynamic > .panel-body > .state > .glyphicon-ok {
+    color: #2ECC71;
+}
+
+.activity > .dynamic > .panel-body > .state > .glyphicon-remove {
+    color: #C0392B;
+}
+
+.activity > .dynamic > .panel-body > .state > .glyphicon {
+    margin-top: 7px;
+    margin-left: 15px;
+}
+.footer {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    font-size: 13px;
+    color: #34495e;
+    background-color: #ecf0f1;
 }
