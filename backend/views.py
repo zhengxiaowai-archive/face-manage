@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 
 from backend.models import *
-
+from ._func import *
 # Create your views here.
 
 
@@ -45,7 +45,6 @@ def register(request):
     xclass = request.POST['xclass']
     image = request.FILES['image']
 
-    print(number)
     # 简单的表单校验
     if not (account and username and password and number and xclass and image):
         return HttpResponse('确认填写的信息完整！', status=400)
@@ -64,9 +63,11 @@ def register(request):
     new_extuser.save()
 
     # 保存图片
-    with open('./static/img/origin/%s.png' % str(number), 'wb') as f:
+    with open('default.png', 'wb') as f:
         f.write(image.read())
-    # return HttpResponse('OK')
+
+    # 切出人脸
+    save_face('default.png', './static/img/origin/%s.png' % str(number))
     return redirect('/user/login')
 
 
