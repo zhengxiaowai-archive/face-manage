@@ -1,4 +1,6 @@
-#coding=utf8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals,print_function
 
 from django.shortcuts import render,redirect
@@ -11,7 +13,6 @@ from django.db import transaction
 
 from backend.models import *
 from ._func import *
-# Create your views here.
 
 
 def login(request):
@@ -43,7 +44,6 @@ def register(request):
     password = request.POST['password']
     number = request.POST['number']
     xclass = request.POST['xclass']
-    image = request.FILES['image']
 
     # 简单的表单校验
     if not (account and username and password and number and xclass and image):
@@ -62,12 +62,6 @@ def register(request):
     new_extuser = ExtUser(user=new_user, student_number=number, xclass=xclass, name=username)
     new_extuser.save()
 
-    # 保存图片
-    with open('default.png', 'wb') as f:
-        f.write(image.read())
-
-    # 切出人脸
-    save_face('default.png', './static/img/origin/%s.png' % str(number))
     return redirect('/user/login')
 
 
@@ -82,6 +76,15 @@ def index(request):
     return render(request, 'index.html', {'account': account, 'username': real_name, 'xclass': xclass, 'number': student_number})
 
 
+@login_required
+@require_http_methods(['GET', 'POST']) 
+@transaction.atomic
+def profile(request):
+    if request.method == 'GET':
+        logined_user = request.user 
+        return render(request, 'profile.html', {'user': logined_user})
+    if request.method == 'POST':
+        return redirect('/')
 
 
 

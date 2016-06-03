@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/flat-ui.min.css">
+        <link rel="stylesheet" href="/static/css/index.css">
+        <link rel="stylesheet" href="/static/css/nprogress.css">
+    </head>
+    <body>
+        <span class='nprogress-logo fade out'></span>
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <button data-target="#navbar-collapse-08" data-toggle="collapse" class="navbar-toggle" type="button"></button>
+            <a href="#" class="navbar-brand">Face&nbsp;Recognition</a>
+        </div>
+        <div class="btn-group navbar-right down-drop">
+            {% if request.user %}
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                {{ request.user.user_ext.name }} <span class="caret"></span>
+            </button>
+            {% else %}
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                未登入 <span class="caret"></span>
+            {% endif %}
+
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="/user/profile">个人信息</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/user/logout">注销</a></li>
+                </ul>
+            </div>
+            </nav>
+        {% block content %}{% endblock %}
+        <div class="footer">
+            <div>
+                <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+                &nbsp;&nbsp;2016&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                &nbsp;&nbsp;
+                Power&nbsp;By&nbsp;z正小歪&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>京ICP备16005814号</span>
+            </div>
+        </div>
+        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/flat-ui.min.js"></script>
+        <script type="text/javascript" src="/static/js/nprogress.js"></script>
+        <script type="text/javascript" src="/static/js/index.js"></script>
+        <script type="text/javascript" src="/static/js/profile.js"></script>
+    </body>
+</html>

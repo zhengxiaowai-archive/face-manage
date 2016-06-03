@@ -55,3 +55,32 @@
     color: #34495e;
     background-color: #ecf0f1;
 }
+
+#profile > .user-info {
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+#profile > .user-info > .profile-entry + .profile-entry {
+    margin-top:20px;
+}
+
+#profile > .user-info > .profile-entry input {
+    display: inline-block;
+    width: 60%;
+}
+
+#profile > .user-info > .profile-entry button {
+    margin-left: 10px;
+}
+
+#profile > .user-info > .profile-entry .btn-save{
+    float: right;
+    margin-right: 30%;
+}
+
+#profile > .user-info > .profile-entry .btn-cancel{
+    float: left;
+    margin-left: 10%;
+}

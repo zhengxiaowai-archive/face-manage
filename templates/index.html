@@ -1,57 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <title>主页</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/flat-ui.min.css">
-    <link rel="stylesheet" href="/static/css/index.css">
-    <link rel="stylesheet" href="/static/css/nprogress.css">
-</head>
-<body>
-    <span class='nprogress-logo fade out'></span>
-    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
-          <div class="navbar-header">
-            <button data-target="#navbar-collapse-08" data-toggle="collapse" class="navbar-toggle" type="button"></button>
-            <a href="#" class="navbar-brand">Face&nbsp;Recognition</a>
-          </div>
-         <div class="btn-group navbar-right down-drop">
-            {% if account %}
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            {{ account }} <span class="caret"></span>
-            </button>
-            {% else %}
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            未登入 <span class="caret"></span>
-            {% endif %}
-            
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">个人信息</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="/user/logout">注销</a></li>
-            </ul>
-         </div>
-    </nav>
+{% extends "base.html" %}
+{% block title %}主页{% endblock %}
+{% block content %}
     <div class='container' id="main">
-        <!--<div class="info">-->
-            <!--<div class="photo">-->
-                <!--<img src="/static/img/origin/2012132004.png">-->
-            <!--</div>-->
-            <!--<div>-->
-                <!--<label for="user-name">姓名:&nbsp;</label>-->
-                <!--<span id="user-name">{{ username }}</span>-->
-            <!--</div>-->
-            <!--<div>-->
-                <!--<label for="user-number">学号:&nbsp;</label>-->
-                <!--<span id="user-number">{{ number }}</span>-->
-            <!--</div>-->
-            <!--<div>-->
-                <!--<label for="user-class">班级:&nbsp;</label>-->
-                <!--<span id="user-class">{{ xclass }}</span>-->
-            <!--</div>-->
-        <!--</div>-->
         <div class="activity">
             <div class="panel panel-default dynamic">
                 <div class="panel-heading">
@@ -80,19 +30,8 @@
         </div>
 
     </div>
-    <div class="footer">
-        <div>
-            <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
-            &nbsp;&nbsp;2016&nbsp;&nbsp;
-            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-            &nbsp;&nbsp;
-            Power&nbsp;By&nbsp;z正小歪&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>京ICP备16005814号</span>
-        </div>
-    </div>
-    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/js/flat-ui.min.js"></script>
-    <script type="text/javascript" src="/static/js/nprogress.js"></script>
-    <script type="text/javascript" src="/static/js/index.js"></script>
-</body>
-</html>
+
+{% endblock %}
+
+
+

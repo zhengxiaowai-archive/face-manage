@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}个人信息{% endblock %}
+{% block content %}
+<div id="profile" class="container">
+    <form class="user-info" action='/user/profile' method='post'>
+        {% csrf_token %}
+        <div class="profile-account profile-entry from-group">
+            <label for='profile_account'>账号：</label>
+            <input class='form-control' disabled="disabled" id="profile_account" type="text" name="account" value="{{ request.user.username}}">
+        </div>
+        <div class="profile-password profile-entry from-group">
+            <label for='profile_password'> 密码：</label>
+            <input class='form-control' disabled="disabled" id="profile_password" type="password" name="password" value="">
+            <button class="btn btn-info btn-modify">修改</button>
+        </div>
+        <div class="profile-student-id profile-entry from-group">
+            <label for='profile_student_id'>学号：</label>
+            <input class='form-control' disabled="disabled" id="profile_student_id" type="text" name="student-id" value="">
+            <button class="btn btn-info btn-modify">修改</button>
+        </div>
+        <div class="profile-name profile-entry from-group">
+            <label for='profile_name'>姓名：</label>
+            <input class='form-control' disabled="disabled" id="profile_name" type="text" name="name" value="">
+            <button class="btn btn-info btn-modify">修改</button>
+        </div>
+        <div class="profile-xclass profile-entry from-group">
+            <label for='profile_xclass'> 班级：</label>
+            <input class='form-control' disabled="disabled" id="profile_xclass" type="text" name="xclass" value="">
+            <button class="btn btn-info btn-modify">修改</button>
+        </div>
+        <div class="profile-buttons profile-entry from-group">
+            <button type="submit" class="btn btn-danger btn-save">保存</button>
+            <a href="/" class="btn btn-default btn-cancel">取消</a>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+{% endblock %}

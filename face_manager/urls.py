@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^user/login$', backend_views.login),
     url(r'^user/logout$', backend_views.logout),
     url(r'^user/register$', backend_views.register),
+    url(r'^user/profile$', backend_views.profile),
 ]
