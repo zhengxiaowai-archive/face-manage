@@ -8,23 +8,39 @@
                     <h3 class="panel-title">动态</h3>
                 </div>
                 <div class="panel-body">
+                    {% for activity in activities %}
+                    {% if activity.is_ok %}
                     <div class="state">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span>{{ request.user.user_ext.name }} 同学于 {{ activity.format_time }} 识别成功</span>
                     </div>
+                    {% else %}
                     <div class="state">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </div>
-                    <div class="state">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    </div>
+                        <span>{{ request.user.user_ext.name }} 同学于 {{ activity.format_time }} 识别失败</span>
+                    </div> 
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="panel-footer">
+                    {% if first %}
+                    <a class="btn btn-primary btn-wide last-page" href="javascript:volid(0);">上一页</a>
+                    {% else %}
+                    <a class="btn btn-primary btn-wide last-page" href="?page={{ previous_page }}">上一页</a>
+                    {% endif %}
+
+                    {% if last %}
+                    <a class="btn btn-primary btn-wide next-page" href="javascript:volid(0);">下一页</a>
+                    {% else %}
+                    <a class="btn btn-primary btn-wide next-page" href="?page={{ next_page }}">下一页</a>
+                    {% endif %}
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel statistical panel-default">
                 <div class="panel-heading">
                 <h3 class="panel-title">统计</h3>
                 </div>
-                <div class="panel-body">
-                    Panel content
+                <div class="panel-body charts">
                 </div>
             </div>
         </div>

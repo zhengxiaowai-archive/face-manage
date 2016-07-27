@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -14,3 +15,12 @@ class ExtUser(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Activity(models.Model):
+    ext_user = models.ForeignKey(ExtUser, related_name='activities')
+    created_at = models.DateTimeField(u'创建时间', default=timezone.now)
+    is_ok = models.BooleanField(u'是否成功', default=False)
+
+    def __unicode__(self):
+        return "{name} | {created_at}".format(
+            name=self.ext_user.name, created_at=self.created_at)

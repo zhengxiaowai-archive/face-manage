@@ -44,6 +44,20 @@
     margin-top: 7px;
     margin-left: 15px;
 }
+.activity > .dynamic > .panel-footer {
+    background-color: #ecf0f1;
+}
+
+.activity > .statistical {
+    margin-bottom: 40px;
+}
+.activity > .dynamic > .panel-footer > .last-page {
+    margin-left: 15px;
+}
+.activity > .dynamic > .panel-footer > .next-page {
+    float: right;
+    margin-right: 15px;
+}
 .footer {
     width: 100%;
     height: 20px;
